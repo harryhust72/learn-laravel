@@ -1,0 +1,108 @@
+@use "@scss/variables";
+
+.books {
+    #create-book-button {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        margin: 0 20px;
+    }
+}
+
+.books-item {
+    display: flex;
+    gap: 20px;
+    background-color: variables.$card-background-color;
+    border-radius: variables.$card-border-radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+
+    &__image {
+        width: auto;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+        height: auto;
+        flex-grow: 1;
+
+        &__title {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &__description {
+            font-size: 12px;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}
+
+.books__detail {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: variables.$card-background-color;
+    border-radius: variables.$card-border-radius;
+
+    display: flex;
+    gap: 30px;
+
+    &__image img {
+        width: 300px;
+    }
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            .books__detail__content__title__actions {
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
+}
+
+.create-book-form {
+    background-color: variables.$card-background-color;
+    border-radius: variables.$card-border-radius;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__submit {
+            height: 40px;
+        }
+    }
+}

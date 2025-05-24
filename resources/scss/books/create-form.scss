@@ -1,0 +1,17 @@
+@use "@scss/variables";
+
+.create-book-form {
+    padding: 40px;
+    background-color: variables.$card-background-color;
+    border-radius: variables.$card-border-radius;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__submit {
+            height: 40px;
+        }
+    }
+}

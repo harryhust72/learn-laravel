@@ -1,0 +1,1 @@
+<button type="{{ $type }}" id="{{ $id ?? '' }}" class="app-button {{ $class ?? '' }}">{{ $title }}</button>

@@ -1,0 +1,19 @@
+@use "@scss/variables";
+
+.app-button {
+    min-height: 30px;
+    padding: 0px 20px;
+    background-color: variables.$button-color;
+    border: 1px solid variables.$button-border-color;
+    border-radius: variables.$button-border-radius;
+    cursor: pointer;
+
+    &--warning {
+        background-color: variables.$button-warning-color;
+        border-color:  variables.$button-warning-border-color;
+    }
+    &--danger {
+        background-color: variables.$button-danger-color;
+        border-color: variables.$button-danger-border-color;
+    }
+}
