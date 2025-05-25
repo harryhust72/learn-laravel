@@ -18,7 +18,11 @@ Follow these steps to set up the project:
 3. **Set up ENV**
     ```bash
     cp .env.example .env
-Then update .env by your configuration.
+    ```
+    Then update .env by your configuration.
+
+    **Note**:
+    Make sure to configure Cloudinary properly; otherwise, image uploads will not work.
 
 4. **Generate application key**
 
