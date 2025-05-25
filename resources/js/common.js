@@ -10,6 +10,7 @@ export async function executeService(serviceFunc, ...params) {
                 errors: error.responseJSON.errors || {},
             };
         }
+        console.log(error)
         return {
             status: "error",
         };

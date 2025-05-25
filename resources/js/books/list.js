@@ -4,6 +4,7 @@ import AppModal from "@js/components/modal";
 import { executeService, priceToVnd } from "@js/common";
 
 const bookFields = ["title", "price", "description"];
+const bookFieldsIncludeImage = [...bookFields, "image"]
 
 function BookManager() {
     const createBookForm = $("#create-book-form");
@@ -44,7 +45,7 @@ function BookManager() {
     }
 
     function clearFormErrors() {
-        for (const field of bookFields) {
+        for (const field of bookFieldsIncludeImage) {
             $(`.error-${field}`).text("");
         }
     }
@@ -52,12 +53,14 @@ function BookManager() {
     async function createBook() {
         const result = await executeService(
             bookApi.createBook,
-            createBookForm.serialize()
+            new FormData(createBookForm[0])
         );
 
-        if (result?.status === "error" && result.type === "validation") {
-            for (const field of bookFields) {
-                $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
+        if (result?.status === "error") {
+            if(result.type === "validation"){
+                for (const field of bookFieldsIncludeImage) {
+                    $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
+                }
             }
             return;
         }
@@ -68,7 +71,7 @@ function BookManager() {
         bookItem.classList.add("books-item");
 
         const image = document.createElement("img");
-        image.src = "/storage/dac_nhan_tam.webp";
+        image.src = result.image_url || "/storage/no_image.avif";
         image.alt = result.title;
         image.classList.add("books-item__image");
 
@@ -132,14 +135,16 @@ function BookManager() {
     }
 
     async function editBook() {
+        const formData = new FormData(editBookForm[0]);
+        formData.append("_method", "PATCH");
         const result = await executeService(
             bookApi.editBook,
             currentBookId,
-            editBookForm.serialize()
+            formData
         );
 
         if (result?.status === "error" && result.type === "validation") {
-            for (const field of bookFields) {
+            for (const field of bookFieldsIncludeImage) {
                 $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
             }
             return;
@@ -147,6 +152,7 @@ function BookManager() {
 
         const bookElement = $(`#book-${result.id}`);
         bookElement.find(".books-item__content__title").text(result.title);
+        bookElement.find(".books-item__image").attr("src", result.image_url || "/storage/no_image.avif");
         bookElement
             .find(".books-item__content__description")
             .text(result.description);

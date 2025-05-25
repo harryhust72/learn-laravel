@@ -1,0 +1,25 @@
+@use "@scss/variables";
+
+.app-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__label {
+    font-weight: bold;
+  }
+
+
+  &__input {
+    cursor: pointer;
+    min-height: 40px;
+    padding: 20px;
+    border: 1px solid variables.$input-border-color;
+    border-radius: variables.$input-border-radius;
+  }
+
+  &__error {
+    color: red;
+    font-size: 12px;
+  }
+}

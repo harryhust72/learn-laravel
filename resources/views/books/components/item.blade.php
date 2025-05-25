@@ -1,5 +1,5 @@
 <div class="books-item" id="book-{{ $book->id }}">
-    <img src="{{ asset('storage/dac_nhan_tam.webp') }}" alt="{{ $book->title }}" class="books-item__image">
+    <img src="{{ $book->image_url ?? asset('storage/no_image.avif') }}" alt="{{ $book->title }}" class="books-item__image">
     <div class="books-item__content">
         <h2 class="books-item__content__title">{{ $book->title }}</h2>
         <p class="books-item__content__description">

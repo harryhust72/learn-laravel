@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Blade::directive('vnd', function ($expression) {
+            return "<?php echo number_format($expression, 0, ',', '.') . ' đ'; ?>";
+        });
     }
 }

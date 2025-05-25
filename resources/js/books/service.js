@@ -12,8 +12,10 @@ function BookService() {
         editBook(bookId, newData) {
             return $.ajax({
                 url: `/books/${bookId}`,
-                method: "PATCH",
+                method: "POST",
                 data: newData,
+                processData: false, // Prevent jQuery from automatically transforming the FormData object
+                contentType: false, // Prevent jQuery from setting the Content-Type header
             });
         },
 
@@ -29,6 +31,8 @@ function BookService() {
                 url: "/books",
                 method: "POST",
                 data,
+                processData: false, // Prevent jQuery from automatically transforming the FormData object
+                contentType: false, // Prevent jQuery from setting the Content-Type header
             });
         },
     };

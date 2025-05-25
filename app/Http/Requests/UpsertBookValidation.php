@@ -25,6 +25,7 @@ class UpsertBookValidation extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
             'price' => 'required|integer|min:1|max:100000000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
 }

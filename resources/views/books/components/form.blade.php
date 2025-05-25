@@ -1,5 +1,5 @@
 <div class="create-book-form">
-    <form method="post" action="{{ route('books.store') }}" class="create-book-form__form"
+    <form method="post" action="{{ route('books.store') }}" class="create-book-form__form" enctype="multipart/form-data"
         id="{{ $id ?? 'create-book-form' }}">
         @csrf
         @include('components.input', [
@@ -14,7 +14,6 @@
             'label' => 'Description',
             'placeholder' => 'Enter book description',
             'required' => true,
-            'error' => $errors->first('description'),
             'errorClass' => 'error-description'
         ])
         @include('components.input', [
@@ -23,8 +22,14 @@
             'placeholder' => 'Enter book price',
             'type' => 'number',
             'required' => true,
-            'error' => $errors->first('price'),
             'errorClass' => 'error-price'
+        ])
+        @include('components.upload', [
+            'name' => 'image',
+            'label' => 'Image',
+            'required' => true,
+            'errorClass' => 'error-image',
+            'multiple' => false,
         ])
     </form>
 </div>

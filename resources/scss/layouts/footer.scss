@@ -1,0 +1,10 @@
+@use "@scss/variables";
+
+.app__footer {
+  height: 80px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background-color: variables.$card-background-color;
+  margin-top: 10px;
+}
