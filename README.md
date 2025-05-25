@@ -39,3 +39,23 @@ Follow these steps to set up the project:
     ```bash
     php artisan serve
     npm run dev
+
+# Future
+1. For current page (Book list)
+```
+- Add pagination
+- Using thumbnails instead of original images when showing book item
+- ...
+```
+
+2. Other pages/features
+```
+- Add authentication and authorization feature (Add several of the actors)
+- Book detail 
+    - Show more information
+    - Run sale programs
+    - Can preview some pages
+- Author CRUD
+- Add books to cart and buy books
+- ...
+```
