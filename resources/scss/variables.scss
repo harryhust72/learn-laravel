@@ -1,14 +1,12 @@
 $background-color: #adafb1;
-$header-background-color: #F2D5CE;
+$header-background-color: #f2d5ce;
 
 $button-color: #cdcdcd;
 $button-border-color: #b6b7b4;
 $button-border-radius: 5px;
-$button-warning-color: #E9F2A2;
+$button-warning-color: #e9f2a2;
 $button-warning-border-color: green;
-// cho màu đỏ nhạt thôi
-$button-danger-color: #F2D5CE;
-
+$button-danger-color: #f2d5ce;
 
 $button-danger-border-color: #d43f00;
 
@@ -24,3 +22,8 @@ $modal-second-layer-background-color: #efedee;
 $modal-border-color: #b6b7b4;
 $modal-border-radius: 5px;
 
+$app-snackbar-background-color: #aef3b2;
+$app-snackbar-border-color: green;
+$app-snackbar-border-radius: 5px;
+$app-snackbar-error-background-color: #f2d5ce;
+$app-snackbar-error-border-color: #d43f00;

@@ -1,0 +1,20 @@
+@use "@scss/variables";
+
+#app-snackbar {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 300px;
+  z-index: 1001;
+  height: auto;
+  padding: 10px;
+  background-color: variables.$app-snackbar-background-color;
+  border: 1px solid variables.$app-snackbar-border-color;
+  border-radius: variables.$app-snackbar-border-radius;
+
+  &.app-snackbar--error {
+    background-color: variables.$app-snackbar-error-background-color;
+    border-color: variables.$app-snackbar-error-border-color;
+  }
+}

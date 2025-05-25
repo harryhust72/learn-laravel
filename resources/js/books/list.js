@@ -62,8 +62,16 @@ function BookManager() {
                     $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
                 }
             }
+            window.appSnackBar.show({
+                message: "Failed to create book",
+                type: "error",
+            });
             return;
         }
+
+        window.appSnackBar.show({
+            message: "Create book successfully",
+        });
 
         const bookLists = $("#books__list");
         const bookItem = document.createElement("div");
@@ -147,8 +155,16 @@ function BookManager() {
             for (const field of bookFieldsIncludeImage) {
                 $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
             }
+            window.appSnackBar.show({
+                message: "Failed to edit book",
+                type: "error",
+            });
             return;
         }
+
+        window.appSnackBar.show({
+            message: "Edit book successfully",
+        });
 
         const bookElement = $(`#book-${result.id}`);
         bookElement.find(".books-item__content__title").text(result.title);
@@ -164,7 +180,20 @@ function BookManager() {
     }
 
     async function deleteBook(bookId) {
-        await executeService(bookApi.deleteBook, bookId);
+        const result = await executeService(bookApi.deleteBook, bookId);
+
+        if (result?.status === "error") {
+            window.appSnackBar.show({
+                message: "Failed to delete book",
+                type: "error",
+            });
+            return;
+        }
+
+        window.appSnackBar.show({
+            message: "Delete book successfully",
+        });
+
         $(`#book-${bookId}`).remove();
     }
 

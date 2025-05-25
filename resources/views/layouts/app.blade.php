@@ -12,6 +12,7 @@
 
 <body>
     @include('layouts.header')
+    @include('components.snackbar')
     <div class=" app__wrapper">
         <div class="app__content">
             @yield('content')
