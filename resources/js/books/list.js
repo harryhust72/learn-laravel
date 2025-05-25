@@ -62,10 +62,12 @@ function BookManager() {
                     $(`.error-${field}`).text(result.errors?.[field]?.[0] || "");
                 }
             }
-            window.appSnackBar.show({
-                message: "Failed to create book",
-                type: "error",
-            });
+            else {
+                window.appSnackBar.show({
+                    message: "Failed to create book",
+                    type: "error",
+                });
+            }
             return;
         }
 
